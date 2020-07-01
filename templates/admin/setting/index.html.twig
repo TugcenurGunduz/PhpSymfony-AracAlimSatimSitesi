@@ -1,0 +1,104 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Setting{% endblock %}
+
+{% block body %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings Page</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings Page</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+    <h1>Setting</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+
+                <th>Company</th>
+
+                <th>Email</th>
+
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for setting in settings %}
+            <tr>
+                <td>{{ setting.id }}</td>
+                <td>{{ setting.title }}</td>
+
+                <td>{{ setting.company }}</td>
+
+                <td>{{ setting.email }}</td>
+
+                <td>{{ setting.status }}</td>
+                <td>
+                    <a href="{{ path('setting_show', {'id': setting.id}) }}" class="btn btn-block btn-info" style="background: #75438a">Show</a>
+                </td>
+                <td>
+                    <a href="{{ path('setting_edit', {'id': setting.id}) }}" class="btn btn-block btn-info" style="background: darksalmon">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="21">no records found</td>
+                <a href="{{ path('setting_new') }}"class="btn btn-block btn-info">Create Settings</a>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    {% endblock %}

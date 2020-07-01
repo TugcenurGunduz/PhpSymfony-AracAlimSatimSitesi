@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include ('admin/head.html.twig') %}
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+</head>
+
+<body>
+<div class="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Login box.scss -->
+    <!-- ============================================================== -->
+    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
+        <div class="auth-box bg-dark border-top border-secondary">
+            <div id="loginform">
+                <div class="text-center p-t-20 p-b-20">
+                    <span class="db"><img src="{{ asset('assets')}}/admin/assets/images/logo.png" alt="logo" /></span>
+                </div>
+
+                    {{ include('user/_form.html.twig') }}
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Login box.scss -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Page wrapper scss in scafholding.scss -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Page wrapper scss in scafholding.scss -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Right Sidebar -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Right Sidebar -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+
+<script>
+
+    $('[data-toggle="tooltip"]').tooltip();
+    $(".preloader").fadeOut();
+    // ==============================================================
+    // Login and Recover Password
+    // ==============================================================
+    $('#to-recover').on("click", function() {
+        $("#loginform").slideUp();
+        $("#recoverform").fadeIn();
+    });
+    $('#to-login').click(function(){
+
+        $("#recoverform").hide();
+        $("#loginform").fadeIn();
+    });
+</script>
+
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="{{ asset('assets')}}/admin/assets/libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="{{ asset('assets')}}/admin/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+<script src="{{ asset('assets')}}/admin/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ asset('assets')}}/admin/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<script src="{{ asset('assets')}}/admin/assets/extra-libs/sparkline/sparkline.js"></script>
+<!--Wave Effects -->
+<script src="{{ asset('assets')}}/admin/dist/js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="{{ asset('assets')}}/admin/dist/js/sidebarmenu.js"></script>
+<!--Custom JavaScript -->
+<script src="{{ asset('assets')}}/admin/dist/js/custom.min.js"></script>
+<!--This page JavaScript -->
+<!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
+<!-- Charts js Files -->
+<script src="{{ asset('assets')}}/admin/assets/libs/flot/excanvas.js"></script>
+<script src="{{ asset('assets')}}/admin/assets/libs/flot/jquery.flot.js"></script>
+<script src="{{ asset('assets')}}/admin/assets/libs/flot/jquery.flot.pie.js"></script>
+<script src="{{ asset('assets')}}/admin/assets/libs/flot/jquery.flot.time.js"></script>
+<script src="{{ asset('assets')}}/admin/assets/libs/flot/jquery.flot.stack.js"></script>
+<script src="{{ asset('assets')}}/admin/assets/libs/flot/jquery.flot.crosshair.js"></script>
+<script src="{{ asset('assets')}}/admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+<script src="{{ asset('assets')}}/admin/dist/js/pages/chart/chart-page-init.js"></script>
+
+</body>
+
+</html>
+
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}New User{% endblock %}#}
+
+{#{% block body %}#}
+{#    <h1>Create new User</h1>#}
+
+{#    {{ include('user/_form.html.twig') }}#}
+
+{#    <a href="{{ path('user_index') }}">back to list</a>#}
+{#{% endblock %}#}

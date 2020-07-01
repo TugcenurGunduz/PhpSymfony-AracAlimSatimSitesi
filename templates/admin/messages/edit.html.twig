@@ -1,0 +1,62 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Full Width</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+    <h1>Edit Messages</h1>
+
+    {{ include('admin/messages/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {{ include('admin/messages/_delete_form.html.twig') }}
+
+                        <a href="{{ path('admin_messages_index') }}">back to list</a>
+
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Right sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- .right-sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- End Right sidebar -->
+                    <!-- ============================================================== -->
+                </div>
+                {% endblock %}
+

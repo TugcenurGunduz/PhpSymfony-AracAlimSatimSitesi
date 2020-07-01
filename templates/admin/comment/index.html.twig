@@ -1,0 +1,97 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Full Width</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Comment</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Comment List</h1>
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Subject</th>
+                                <th>Comment</th>
+                                <th>Status</th>
+                                <th>Ip</th>
+                                <th>Userid</th>
+                                <th>Created_at</th>
+                                <th>Updated_at</th>
+                                <th>Rate</th>
+                                <th>actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for comment in comments %}
+                                <tr>
+                                    <td>{{ comment.id }}</td>
+                                    <td>{{ comment.subject }}</td>
+                                    <td>{{ comment.comment }}</td>
+                                    <td>{{ comment.status }}</td>
+                                    <td>{{ comment.ip }}</td>
+                                    <td>{{ comment.userid }}</td>
+                                    <td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                    <td>{{ comment.updatedAt ? comment.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                                    <td>{{ comment.rate }}</td>
+                                    <td>
+                                        <a class=" btn btn-success" href="{{ path('admin_comment_show', {'id': comment.id}) }}">Show</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-info" href="{{ path('admin_comment_edit', {'id': comment.id}) }}">Edit</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="10">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Right sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- .right-sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- End Right sidebar -->
+                    <!-- ============================================================== -->
+                </div>
+                {% endblock %}
+

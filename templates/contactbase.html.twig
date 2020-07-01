@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block description %}Contact{% endblock %}">
+    <meta name="keywords" content="araba,kiralama,ren a car,sell car,car">
+    <meta name="author" content="Tuğçe Nur Gündüz">
+
+
+    {% block head %}{% include('contact/head.html.twig') %}{% endblock %}
+    {% block stylesheet %} {% endblock %}
+</head>
+<body>
+
+{% block header %}{% include('contact/header.html.twig') %}{% endblock %}
+{% block sidebar %}{% endblock %}
+{% block slider %}{% endblock %}
+{% block body %}{% endblock %}
+{% block footer %}{% include('contact/footer.html.twig') %}{% endblock %}
+{% block javascripts %}{% include('contact/javascripts.html.twig') %} {% endblock %}
+</body>
+</html>

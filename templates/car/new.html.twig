@@ -1,0 +1,63 @@
+
+
+
+{% extends 'homebase.html.twig' %}
+{% block title %}New Car{% endblock %}
+
+{% block body %}
+<SCRIPT language="JavaScript" type="text/javascript" >
+    function openWin( windowURL, windowName, windowFeatures) { window.open(windowURL,windowName,windowFeatures);
+
+    }
+</SCRIPT>
+<div class="responsive-menu">
+    <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
+    <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+</div> <!-- end .responsive-menu -->
+<div class="page-title" style="background-image: url('{{ asset('assets') }}/images/background01.jpg');">
+    <div class="inner">
+        <div class="container">
+            <div class="title">Blog Page</div> <!-- end .title -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</div> <!-- end .page-title -->
+
+<section class="section white">
+    <div class="inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="blog-list">
+                        <div class="blog-post">
+                            <h4 class="title"><a href="blog-post.html">User Car List</a></h4>
+
+                            {{ include('car/_form.html.twig') }}
+
+                            <a href="{{ path('user_car_index') }}">back to list</a>
+                        </div> <!-- end .blog-post -->
+
+                    </div> <!-- end .blog-list -->
+
+                </div> <!-- end .col-sm-9 -->
+                <div class="col-sm-3">
+                    <div class="sidebar">
+                        <div class="widget">
+                            <form class="search-form">
+                                <input type="search" placeholder="search" />
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div> <!-- end .widget -->
+                        <div class="widget">
+                            {{ include('user/usermenu.html.twig') }}
+
+                        </div> <!-- end .widget -->
+
+                    </div> <!-- end .sidebar -->
+                </div> <!-- end .col-sm-3 -->
+            </div>
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</section> <!-- end .section -->
+
+
+{% endblock %}

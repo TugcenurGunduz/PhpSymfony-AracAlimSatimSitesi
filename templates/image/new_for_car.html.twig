@@ -1,0 +1,66 @@
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+<!-- Custom CSS -->
+<link href="{{ asset('assets')}}/admin/assets/libs/flot/css/float-chart.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="{{ asset('assets')}}/admin/dist/css/style.min.css" rel="stylesheet">
+
+<form role="form" name="image" action="{{ path('user_image_new_for_car', {'id':id}) }}" method="post" enctype="multipart/form-data">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Form Elements</h5>
+            <div class="form-group row">
+                <label for="email1" class="col-sm-3 text-right control-label col-form-label">Title</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="image_title" name="image[title]" placeholder="Company Name Here">
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label class="col-md-3">Gallery İmage</label>
+                <div class="col-md-9">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="image_image" name="image[image]" required>
+                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="border-top">
+            <div class="card-body">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Image</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for image in images %}
+        <tr>
+            <td>{{ image.id }}</td>
+            <td><img src="{{ asset('upload/images/' ~ image.image) }}" alt="" width="55px" height="55px"></td>
+            <td>{{ image.title }}</td>
+            <td>{{ image.image }}</td>
+            <td>
+                <a href="{{ path('user_image_edit', {'id': image.id}) }}">Delete</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

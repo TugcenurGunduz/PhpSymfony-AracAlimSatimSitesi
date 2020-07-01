@@ -1,0 +1,107 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}Contact us | {{setting[0].title}}{% endblock %}
+{% block keywords %}{{setting[0].keywords}}{% endblock %}
+{% block description %}{{setting[0].description}}{% endblock %}
+
+{% block body %}
+
+
+    <div class="responsive-menu">
+        <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
+        <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+    </div> <!-- end .responsive-menu -->
+
+    <div class="page-title" style="background-image: url('{{asset('assets')}}/images/background01.jpg');">
+        <div class="inner">
+            <div class="container">
+                <div class="title">Contact us</div> <!-- end .title -->
+            </div> <!-- end .container -->
+        </div> <!-- end .inner -->
+    </div> <!-- end .page-title -->
+
+{#    <div id="map" class="map"></div>#}
+
+    <section class="section white">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="contact">
+                            <h4>Contact Form</h4>
+                            {{ include('messages.html.twig') }}
+                            <form name="messages" method="post" id="contact-form">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <input type="text" id="messages_name" name="messages[name]" placeholder="Name Surname*" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="email" id="messages_email" name="messages[email]" placeholder="Email*" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" id="messages_subject" name="messages[subject]" placeholder="Subject" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <textarea id="messages_message" name="messages[message]" placeholder="Message*" required rows="7"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <input type="hidden" name="token" value="{{ csrf_token('form-message') }}" />
+                                    <button type="submit" class="button light-blue" style="background: #AA3333">Submit</button>
+                                </div>
+                                <div id="contact-loading" class="alert alert-info form-alert">
+                                    <span class="icon"><i class="fa fa-info"></i></span>
+                                    <span class="message">Loading...</span>
+                                </div>
+                                <div id="contact-success" class="alert alert-success form-alert">
+                                    <span class="icon"><i class="fa fa-check"></i></span>
+                                    <span class="message">Success!</span>
+                                </div>
+                                <div id="contact-error" class="alert alert-danger form-alert">
+                                    <span class="icon"><i class="fa fa-times"></i></span>
+                                    <span class="message">Error!</span>
+                                </div>
+                            </form>
+                        </div> <!-- end .contact -->
+                    </div> <!-- end .col-sm-8 -->
+                    <div class="col-sm-4">
+                        <div class="contact-details">
+                            <div class="item">
+                                <div class="icon"><i class="ion-ios-location-outline"></i></div>
+                                <div class="content">
+                                    <h6>Address</h6>
+                                    <span>{{setting[0].address}}</span>
+                                </div> <!-- end .content -->
+                            </div> <!-- end .item -->
+                            <div class="item">
+                                <div class="icon"><i class="ion-ios-telephone-outline"></i></div>
+                                <div class="content">
+                                    <h6>Phone</h6>
+                                    <span>Mobile: {{ setting[0].phone }}</span>
+                                    <span>Fax: {{ setting[0].fax }}</span>
+                                </div> <!-- end .content -->
+                            </div> <!-- end .item -->
+                            <div class="item">
+                                <div class="icon"><i class="ion-ios-email-outline"></i></div>
+                                <div class="content">
+                                    <h6>Email</h6>
+                                    <span>{{setting[0].email}}</span>
+                                </div> <!-- end .content -->
+                            </div> <!-- end .item -->
+                        </div> <!-- end .contact-details -->
+                    </div> <!-- end .col-sm-4 -->
+                </div> <!-- end .row -->
+            </div> <!-- end .container -->
+        </div> <!-- end .inner -->
+    </section> <!-- end .section -->
+
+{% endblock %}

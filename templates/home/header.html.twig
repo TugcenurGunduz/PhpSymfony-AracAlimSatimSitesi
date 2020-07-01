@@ -1,0 +1,39 @@
+<header class="header">
+    <div class="container">
+        <div class="navigation clearfix">
+            <div class="logo"><a href="/"><img src="{{ asset('assets') }}/images/logo.png" alt="Automan" class="img-responsive"></a></div> <!-- end .logo -->
+            <div class="contact">
+
+            </div> <!-- end .contact -->
+            <nav class="main-nav">
+                <ul class="list-unstyled">
+                    <li class="active">
+                       <a href="/">Home</a>
+
+                    </li>
+
+
+
+                    <li>
+                        <a href="/about">About Us</a>
+
+                    </li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li>
+                        <a href="/user"><img src="{{ asset('upload/images/' ~app.user.image) }}" alt="user" class="rounded-circle" width="31">
+                                {{ app.user.name }} {{ app.user.surname }}</a>
+                        </li>
+                        <li><a href="/logout">logout</a> </li>
+                        {% else %}
+                            <!--     <div class="login"><a href=""><i class="ion-ios-person"></i></a></div>  --> <!-- end .login -->
+                          <li><a href="loginuser">Login</a></li>
+                    {% endif %}
+
+
+                </ul>
+            </nav> <!-- end .main-nav -->
+            <a href="" class="responsive-menu-open"><i class="fa fa-bars"></i></a>
+        </div> <!-- end .navigation -->
+    </div> <!-- end .container -->
+</header> <!-- end .header -->

@@ -1,0 +1,66 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{ app.user.name }} Profile{% endblock %}
+
+{% block body %}
+    <div class="responsive-menu">
+        <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
+        <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+    </div> <!-- end .responsive-menu -->
+    <div class="page-title" style="background-image: url('{{ asset('assets') }}/images/background01.jpg');">
+        <div class="inner">
+            <div class="container">
+                <div class="title">Blog Page</div> <!-- end .title -->
+            </div> <!-- end .container -->
+        </div> <!-- end .inner -->
+    </div> <!-- end .page-title -->
+
+    <section class="section white">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="blog-list">
+                            <div class="blog-post">
+                                <h4 class="title"><a href="blog-post.html">Otomobil kategorisi hakkında daha fazla bilgi:</a></h4>
+
+                                Ulaşımda lüks olmaktan çıkıp büyük bir çoğunluk için zorunluluk haline gelmiş olan otomobil modelleri, çok çeşitli donanım seviyeleri ile kategorimizde yer alıyor. Her zevke ve bütçeye hitap eden sıfır ve ikinci el yüz binlerce otomobil ilanının yer aldığı kategori, hayallerdeki modele en hızlı şekilde ulaşabilmenin yolunu açıyor.
+
+                                Araba ilanları için yapacağınız aramalarda fiyat aralığının yanında, araç model yılı, vites tipi, kasa tipi, yakıt türü, araç kilometresi, motor hacmi, motor gücü, çekiş tipi, renk, garanti ve donanım özellikleri gibi birçok seçeneği kendiniz belirleyerek ilan sayısını sınırlandırabilir ve istediğiniz modele çok daha kolay bir şekilde ulaşabilirsiniz. Anahtar kelime araması yaparak istediğiniz sonuçlara daha hızlı şekilde ulaşabilir ve özelleştirdiğiniz arama kriterlerinizi kaydedebilirsiniz.
+
+                                Volkswagen’den Mercedes’e, BMW’den Audi’ye, Honda’dan Chevrolet’ye, Toyota’dan Ferrari’ye ve Ford’dan Hyundai’ye tüm otomobil markaları, farklı donanım seviyelerindeki Sedan, Hatchback, Coupe, Cabrio ve Station Wagon modelleri ile kategorimizdeki ilanlarda yer alıyor. İkinci el otomobil modellerin yanında tercihinizi sıfır kilometre bir araç satın almaktan yana kullanmak isterseniz de bayiye gitmeden önce kategorimizdeki ilanlara göz atarak sıfır otomobil fiyatları hakkında bilgi sahibi olabilir ve hayalinizdeki modele avantajlı fiyatlarla sahip olabilirsiniz. 2018 otomobil modelleri, 2019 araba ilanlarına ister sahibinden, ister galeriden bütçenize en uygun fiyatlı ya da kampanyalı olanı bulabilirsiniz.
+
+                                İlanlarda yer alan yüksek kaliteli fotoğraflardan ve videolardan ilgilendiğiniz modeli incelerken, ilan sahibinin açıklamalarını okuyarak detaylı bilgilere de ulaşabilirsiniz. Almak istediğiniz araçla ilgili olarak satıcı ile telefon ya da mesajla irtibata geçerek ayrıntıları konuşabilir ya da pazarlık yapabilirsiniz. Tüm bunların yanında kendi aracınızı satmak için de ücretsiz üyelik işlemlerinin ardından, birkaç basit adımda kategorimize ilan verebilir, ilanınızın ön plana çıkarak daha fazla görüntülenebilmesi ve kısa sürede satılabilmesi için de vitrin ve doping hizmetlerimizden uygun ücret ve kolay ödeme koşullarıyla faydalanabilirsiniz.<br>
+
+                                <h4>Ahmet Yalçın:</h4>
+                                    Çok memnun kaldım. Tam istediğim gibi bir araca gayet uygun bir bütçede sahip oldum. Teşekkür ederim.
+                                <h4>Elif Kaya:</h4>
+                                    Müşteriye karşı tutumunuzdan ve hizmetlerinizden çok memnun kaldım.
+
+                            </div> <!-- end .blog-post -->
+
+                        </div> <!-- end .blog-list -->
+
+                    </div> <!-- end .col-sm-9 -->
+                    <div class="col-sm-3">
+                        <div class="sidebar">
+                            <div class="widget">
+                                <form class="search-form">
+                                    <input type="search" placeholder="search" />
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div> <!-- end .widget -->
+                            <div class="widget">
+                                    {{ include('user/usermenu.html.twig') }}
+
+                            </div> <!-- end .widget -->
+
+                        </div> <!-- end .sidebar -->
+                    </div> <!-- end .col-sm-3 -->
+                </div>
+            </div> <!-- end .container -->
+        </div> <!-- end .inner -->
+    </section> <!-- end .section -->
+
+
+{% endblock %}

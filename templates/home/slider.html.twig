@@ -1,0 +1,29 @@
+<div class="responsive-menu">
+    <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
+    <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+</div> <!-- end .responsive-menu -->
+
+<div class="flexslider welcome">
+    <div class="slides">
+        {% for rs in slider %}
+            <a href="{{ path('car_show', {'id': rs.id}) }}">
+        <div class="slide" style="background-image: url('{{ asset('upload/images/' ~ rs.image) }}');">
+
+            <div class="inner">
+                <div class="container">
+                    <div class="banner-wrapper">
+                        <div class="banner">
+                            <div class="before">{{rs.price}}</div>
+                            {{ rs.title }}
+                            {{rs.description}}
+                        </div> <!-- end .banner -->
+                    </div> <!-- end .banner-wrapper -->
+                    <a href="details.html" class="button border white xsmall">Know More</a>
+                </div> <!-- end .container -->
+            </div> <!-- end .inner -->
+        </div> <!-- end .slide -->
+            </a>
+        {% endfor %}
+
+    </div> <!-- end .slides -->
+</div> <!-- end .welcome -->

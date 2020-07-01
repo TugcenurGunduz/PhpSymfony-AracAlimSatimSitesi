@@ -1,0 +1,11 @@
+<div class="col-md-12">
+    <h5 class="title">User Menu</h5>
+    <img src="{{ asset('upload/images/' ~app.user.image) }}" alt="user" class="img'-circle" style="height: 80px" width="80">
+    {{ app.user.name }} {{ app.user.surname }}
+    <ul class="fa-ul list-unstyled">
+        <li><i class="fa-li fa fa-caret-right"></i><a href="/user">My Profile</a></li>
+        <li><i class="fa-li fa fa-caret-right"></i><a href="/user/car">My Cars</a></li>
+        <li><i class="fa-li fa fa-caret-right"></i><a href="/user/comments">My Comments</a></li>
+        <li><i class="fa-li fa fa-caret-right"></i><a href="/logout">Logout</a></li>
+    </ul>
+</div> <!-- end .widget -->

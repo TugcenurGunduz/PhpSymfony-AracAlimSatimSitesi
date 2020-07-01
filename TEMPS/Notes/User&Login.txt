@@ -1,0 +1,8 @@
+1-  composer require symfony/security-bundle  //istall security bundle
+2-  php bin/console make:user			//user User Model						
+3-  php bin/console make:entity User 		//if you want add more fields in user Entity
+4-  php bin/console make:migration
+5-  php bin/console doctrine:migrations:migrate
+6-  php bin/console make:auth			//create authentication
+7-  php bin/console make:crud User 		//create user data create ,list,update,delete
+8-  php bin/console make:registration-form	//create user registration form and controller

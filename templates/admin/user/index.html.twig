@@ -1,0 +1,110 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}User List{% endblock %}
+
+{% block body %}
+
+<SCRIPT language="JavaScript" type="text/javascript" >
+    function openWin( windowURL, windowName, windowFeatures) { window.open(windowURL,windowName,windowFeatures);
+
+    }
+</SCRIPT>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <div class="col-md-2">
+                    <a href="{{ path('admin_user_new') }}" class="btn btn-block btn-success" style="background: #0b93e1">Create New User</a>
+                </div>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">User List</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <table class="table table-responsive">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Email</th>
+                                <th>Roles</th>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Image</th>
+                                <th>Status</th>
+                                <th>actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                                    <td>{{ user.name }}</td>
+                                    <td>{{ user.surname }}</td>
+                                    <td><img src="{{ asset('upload/images/')}}{{ user.image }}" heigth='40px' width="40px"></td>
+                                    <td>{{ user.status }}</td>
+                                    <td>
+                                        <a href="{{ path('admin_user_show', {'id': user.id}) }}" class="btn btn-block btn-info" style="background: #75438a">show</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('admin_user_edit', {'id': user.id}) }}" class="btn btn-block btn-success" style="background: #1d8356">edit</a>
+                                    </td>
+                                    <td>
+                                        {{ include('admin/user/_delete_form.html.twig') }}
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="11">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    {% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block description %}Araba alım satım ilan!{% endblock %}">
+    <meta name="keywords" content="araba,kiralama,ren a car,sell car,car">
+    <meta name="author" content="Tuğçe Nur Gündüz">
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block head %}{% include ('aboutus/head.html.twig') %}{% endblock %}
+</head>
+<body class="hold-transition sidebar-mini">
+
+{% block header %}{% include ('aboutus/header.html.twig') %}{% endblock %}
+{% block sidebar %}{% include ('aboutus/sidebar.html.twig') %}{% endblock %}
+{% block body %}{% endblock %}
+{% block footer %}{% include ('aboutus/footer.html.twig') %}{% endblock %}
+</body>
+</html>

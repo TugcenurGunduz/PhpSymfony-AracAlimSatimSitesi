@@ -1,0 +1,140 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{setting[0].title}}{% endblock %}
+{% block keywords %}{{setting[0].keywords}}{% endblock %}
+{% block description %}{{setting[0].description}}{% endblock %}
+{% block slider %}{% include('home/slider.html.twig') %}{% endblock %}
+{% block body %}
+
+
+
+
+    <section class="section white">
+
+        <div class="inner">
+            <h1 class="main-heading">Featured Car Deals<small>Best Car Deals</small></h1>
+            <div id="featured-cars" class="owl-carousel featured-cars">
+                {% for rs in cars %}
+                <div class="item">
+                    <div class="featured-car">
+                        <div class="image">
+                            <a href="{{ path('car_show', {'id': rs.id}) }}"><img src="{{ asset('upload/images/' ~ rs.image) }}" style="height: 237px; weight:142px" alt="car" class="img-responsive"></a>
+                            <span class="sale-tag">For Sale</span>
+                        </div> <!-- end .image -->
+                        <div class="content">
+                            <div class="clearfix">
+                                <h5><a href="">{{rs.title}}</a></h5>
+                                <span class="price">{{rs.price}} TL</span>
+                            </div> <!-- end .clearfix -->
+                            <div class="line"></div>
+                            <p>{{rs.detail}}</p>
+                        </div> <!-- end .content -->
+                        <div class="details clearfix">
+                            <div class="seats"><i class="icon-car-seat"></i>4</div>
+                            <div class="fuel"><i class="icon-car-fuel"></i>Petrol</div>
+                            <div class="type"><i class="icon-car-door"></i>Sport</div>
+                        </div> <!-- end .details -->
+                    </div> <!-- end .featured-car -->
+                </div> <!-- end .item -->
+{% endfor %}
+
+            </div> <!-- end .featured-cars -->
+            <div class="container">
+                {% for rs in car1 %}
+
+                <div class="call-to-action clearfix">
+                    <div class="image" style="background-image: url('{{ asset('upload/images/' ~ rs.image) }}');"></div>
+                    <div class="content">
+                        <h2>Sell your Car</h2>
+                        <p>Submit detail and sell it Nam liber tempor cum soluta nobis eleife  option congue nihil...</p>
+                    </div>
+                    <div class="cta-button">
+
+                        <a href="{{ path('car_show', {'id': rs.id}) }}" class="button border white">Submit Car</a>
+
+                    </div>
+                    {% endfor %}
+                </div>
+            </div> <!-- end .container -->
+        </div> <!-- end .inner -->
+    </section> <!-- end .section -->
+
+    <section class="section lighter">
+        <div class="inner">
+            <div class="container">
+                <h1 class="main-heading">Latest From The Blog<small>Best Car Deals</small></h1>
+                <div id="blog-masonry" class="blog-masonry">
+                    <div class="blog-masonry-sizer"></div>
+                    <div class="blog-post wide">
+                        <a href="blog-post.html"><div class="blog-post-image" style="background-image: url('{{ asset('assets') }}/images/blog-post-image01.jpg');"></div></a>
+                        <div class="content">
+                            <div class="avatar"><img src="{{ asset('assets') }}/images/avatar01.jpg" alt="author name"></div>
+                            <div class="meta"><span class="author">by John Doe</span><span class="date">Tue, Aug 14, 12</span></div>
+                            <h4><a href="blog-post.html">Porche Release New Model</a></h4>
+                            <p class="excerpt">Praesent vel metus ac enim vulputate semper. Quisque consequat tempor nibh a mollis. Sed quis neque non ipsum scelerisque ornare at sit amet lacus... <a href="blog-post.html">Read more</a></p>
+                        </div> <!-- end .content -->
+                    </div> <!-- end .blog-post -->
+                    <div class="blog-post">
+                        <a href="blog-post.html"><div class="blog-post-image" style="background-image: url('{{ asset('assets') }}/images/blog-post-image02.jpg');"></div></a>
+                        <div class="content">
+                            <div class="avatar"><img src="{{ asset('assets') }}/images/avatar02.jpg" alt="author name"></div>
+                            <div class="meta"><span class="author">by John Doe</span><span class="date">Tue, Aug 14, 12</span></div>
+                            <h4><a href="blog-post.html">The Grand Car Road Show 2014</a></h4>
+                            <p class="excerpt">Nam liber tempor cum soluta nobis eleife option congue nihil... <a href="blog-post.html">Read more</a></p>
+                        </div> <!-- end .content -->
+                    </div> <!-- end .blog-post -->
+                    <div class="blog-post short">
+                        <a href="blog-post.html"><div class="blog-post-image" style="background-image: url('{{ asset('assets') }}/images/blog-post-image03.jpg');"></div></a>
+                        <div class="content">
+                            <div class="avatar"><img src="{{ asset('assets') }}/images/avatar03.jpg" alt="author name"></div>
+                            <div class="meta"><span class="author">by John Doe</span><span class="date">Tue, Aug 14, 12</span></div>
+                            <h4><a href="blog-post.html">Bentley At WorldExpo</a></h4>
+                            <p class="excerpt">Nam liber tempor cum soluta nobis eleife option congue nihil... <a href="blog-post.html">Read more</a></p>
+                        </div> <!-- end .content -->
+                    </div> <!-- end .blog-post -->
+                    <div class="blog-post audio">
+                        <div class="audio-player">
+                            <audio controls>
+                                <source src="images/redwing.mp3" type="audio/mpeg">
+                            </audio>
+                        </div> <!-- end .audio-player -->
+                        <div class="content">
+                            <div class="avatar"><img src="{{ asset('assets') }}/images/avatar04.jpg" alt="author name"></div>
+                            <div class="meta"><span class="author">by John Doe</span><span class="date">Tue, Aug 14, 12</span></div>
+                            <h4><a href="blog-post.html">Audio Post</a></h4>
+                            <p class="excerpt">Nam liber tempor cum soluta nobis eleife option congue nihil... <a href="blog-post.html">Read more</a></p>
+                        </div> <!-- end .content -->
+                    </div> <!-- end .blog-post -->
+                    <div class="blog-post video">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" width="434" height="244" src="https://www.youtube.com/embed/iNJdPyoqt8U?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        </div> <!-- end .embed-responsive -->
+                        <div class="content">
+                            <div class="avatar"><img src="{{ asset('assets') }}/images/avatar05.jpg" alt="author name"></div>
+                            <div class="meta"><span class="author">by John Doe</span><span class="date">Tue, Aug 14, 12</span></div>
+                            <h4><a href="blog-post.html">BMW Unveils New Car</a></h4>
+                            <p class="excerpt">Praesent vel metus ac enim vulputate semper. Quisque consequat tempor nibh a mollis. Sed quis neque non ipsum scelerisque ornare at sit amet lacus... <a href="blog-post.html">Read more</a></p>
+                        </div> <!-- end .content -->
+                    </div> <!-- end .blog-post -->
+                    <div class="blog-post quote">
+                        <div class="content">
+                            <div class="avatar"><img src="{{ asset('assets') }}/images/avatar06.jpg" alt="author name"></div>
+                            <div class="meta"><span class="author">by John Doe</span><span class="date">Tue, Aug 14, 12</span></div>
+                            <span class="quotes"><i class="fa fa-quote-left"></i></span>
+                            <p class="excerpt">Nam liber tempor cum soluta nobis eleife option congue nihil... <a href="blog-post.html">Read more</a></p>
+                        </div> <!-- end .content -->
+                    </div> <!-- end .blog-post -->
+                    <div class="blog-post quote">
+                        <div class="content">
+                            <div class="avatar"><img src="{{ asset('assets') }}/images/avatar06.jpg" alt="author name"></div>
+                            <div class="meta"><span class="author">by John Doe</span><span class="date">Tue, Aug 14, 12</span></div>
+                            <span class="quotes"><i class="fa fa-quote-left"></i></span>
+                            <p class="excerpt">Nam liber tempor cum soluta nobis eleife option congue nihil... <a href="blog-post.html">Read more</a></p>
+                        </div> <!-- end .content -->
+                    </div> <!-- end .blog-post -->
+                </div> <!-- end .blog-masonry -->
+            </div> <!-- end .container -->
+        </div> <!-- end .inner -->
+    </section> <!-- end .section -->
+
+{% endblock %}

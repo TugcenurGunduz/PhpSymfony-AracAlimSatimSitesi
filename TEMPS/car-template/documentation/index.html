@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Documentation - Automan HTML Template</title>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Style.css -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+		
+		<div class="menu">
+			<h2>Automan</h2>
+			<h4>HTML Template</h4>
+			<nav>
+				<ul class="list-unstyled">
+					<li><a href="#welcome">Welcome</a></li>
+					<li><a href="#templates">Templates</a></li>
+					<li><a href="#contact-form">Contact Form</a></li>
+					<li><a href="#twitter">Twitter Feed</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="body">
+			<section id="welcome">
+				<h1>Welcome</h1>
+				<p>This documentation is going to assume you know how to edit HTML, since you bought an html template, and just show you some of the things specific to this template.</p>
+			</section>
+			<section id="templates">
+				<h1>Templates</h1>
+				<ul>
+					<li>about-us.html</li>
+					<li>add-car-details.html</li>
+					<li>blog.html</li>
+					<li>blog-post.html</li>
+					<li>choose-specification.html</li>
+					<li>compare.html</li>
+					<li>compare-details.html</li>
+					<li>contact-details.html</li>
+					<li>contact-us.html</li>
+					<li>details.html</li>
+					<li>details-1.html</li>
+					<li>homepage2.html</li>
+					<li>homepage3.html</li>
+					<li>index.html</li>
+					<li>listing-grid-view.html</li>
+					<li>listing-list-view.html</li>
+					<li>pay-publish.html</li>
+					<li>photos-videos.html</li>
+					<li>shortcodes.html</li>
+				</ul>
+				<p>Edit these templates to suit your needs.</p>
+			</section>
+			<section id="contact-form">
+				<h1>Contact Form</h1>
+				<p>Contact form setup is simple. In <i><b>contact.php</b></i> in the <i><b>scripts</b></i> folder, add your email address to the <i><b>to</b></i> variable.</p>
+<pre>&lt;?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if(!empty($_POST['contact_name']) && !empty($_POST['contact_email']) && !empty($_POST['contact_message'])) {
+		<mark>$to = 'your-email-address@domain.com'; // Replace with your email.</mark>
+		$body = "Name: {$_POST['contact_name']}\n\nEmail: {$_POST['contact_email']}\n\nPhone: {$_POST['contact_phone']}\n\nMessage: {$_POST['contact_message']}";
+		mail($to, "Contact Form Submission: {$_POST['contact_subject']}", $body, "From: {$_POST['contact_email']}");
+	}
+}
+?&gt;</pre>
+				<p>Feel free to format the email any way you wish (requires some php knowledge).</p>
+			</section>
+			<section id="twitter">
+				<h1>Twitter Feed</h1>
+				<p>This template uses <a href="https://github.com/sonnyt/Tweetie" target="_blank">Twittie</a> to create the Twitter feed. <a href="https://github.com/sonnyt/Tweetie#usage" target="_blank">Setup instructions here</a>.</p>
+			</section>
+		</div>
+
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Nivo Lightbox -->
+		<!-- Scripts.js -->
+		<script src="js/scripts.js"></script>
+
+	</body>
+</html>

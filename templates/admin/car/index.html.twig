@@ -1,0 +1,143 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Car List{% endblock %}
+
+{% block body %}
+
+<SCRIPT language="JavaScript" type="text/javascript" >
+    function openWin( windowURL, windowName, windowFeatures) { window.open(windowURL,windowName,windowFeatures);
+
+    }
+</SCRIPT>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <div class="col-md-2">
+                    <a href="{{ path('admin_car_new') }}" class="btn btn-block btn-success" style="background: #0b93e1">Create New Car</a>
+                </div>                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Car Category</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>CAR LIST</h1>
+
+                        <table class="table table-responsive">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Title</th>
+                                <th>Keywords</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>I.Gallery</th>
+
+                                <th>Price</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Fax</th>
+                                <th>Email</th>
+                                <th>City</th>
+                                <th>Country</th>
+                                <th>Location</th>
+                                <th>Status</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for car in cars %}
+                                <tr>
+                                    <td>{{ car.id }}</td>
+                                    <td>{{ car.title }}</td>
+                                    <td>{{ car.keywords }}</td>
+                                    <td>{{ car.description }}</td>
+
+                                    <td><a href="{{ path('admin_car_edit', {'id': car.id}) }}">
+
+                                            {% if car.image==null %}
+                                                add image
+                                            {% else %}
+                                                <img src="{{ asset('upload/images/')}}{{ car.image }}" heigth='40px' width="40px">
+
+                                            {% endif %}
+                                        </a></td>
+                                    <td>
+                                        <a href="javascript:openWin('{{ path('admin_image_new', {'id': car.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600');">
+                                            <img src="{{ asset('assets/admin/img') }}/gallery.jpg" height="30">
+                                        </a>
+                                    </td>
+
+                                    <td>{{ car.price }}</td>
+                                    <td>{{ car.address }}</td>
+                                    <td>{{ car.phone }}</td>
+                                    <td>{{ car.fax }}</td>
+                                    <td>{{ car.email }}</td>
+                                    <td>{{ car.city }}</td>
+                                    <td>{{ car.country }}</td>
+                                    <td>{{ car.location }}</td>
+                                    <td>{{ car.status }}</td>
+
+                                    <td>
+                                        <a href="{{ path('admin_car_show', {'id': car.id}) }}"  class="btn btn-block btn-info" style="background: #75438a">show</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('admin_car_edit', {'id': car.id}) }}" class="btn btn-block btn-success" style="background: #1d8356">edit</a>
+                                    </td>
+                                    <td>
+                                        {{ include('admin/car/_delete_form.html.twig') }}
+                                    </td>
+
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="17">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    {% endblock %}

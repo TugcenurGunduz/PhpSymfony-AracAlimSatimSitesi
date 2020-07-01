@@ -1,0 +1,95 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Full Width</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+    <h1>Messages index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th>Ip</th>
+                <th>Note</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr>
+                <td>{{ message.id }}</td>
+                <td>{{ message.name }}</td>
+                <td>{{ message.subject }}</td>
+                <td>{{ message.message }}</td>
+                <td>{{ message.status }}</td>
+                <td>{{ message.ip }}</td>
+                <td>{{ message.note }}</td>
+
+                <td>
+                    <a class="btn btn-block btn-info" href="{{ path('admin_messages_show', {'id': message.id}) }}" style="background: #fe7a18">Show</a>
+                </td>
+                <td>
+                    <a class="btn btn-block btn-info" href="{{ path('admin_messages_edit', {'id': message.id}) }}" style="background: royalblue">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Right sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- .right-sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- End Right sidebar -->
+                    <!-- ============================================================== -->
+                </div>
+                {% endblock %}
+

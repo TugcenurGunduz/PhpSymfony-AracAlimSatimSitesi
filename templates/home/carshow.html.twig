@@ -1,0 +1,215 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{ car.title }}{% endblock %}
+{% block keywords %}{{ car.keywords }}{% endblock %}
+{% block description %}{{ car.description }}{% endblock %}
+
+{% block body %}
+
+
+    <div class="responsive-menu">
+        <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
+        <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+    </div> <!-- end .responsive-menu -->
+    <div class="page-title" style="background-image: url('{{ asset('assets') }}/images/background01.jpg');">
+        <div class="inner">
+            <div class="container">
+                <div class="title">Car Details</div> <!-- end .title -->
+            </div> <!-- end .container -->
+        </div> <!-- end .inner -->
+    </div> <!-- end .page-title -->
+
+    <section class="section white">
+        <div class="inner">
+            <div class="container">
+                <div class="car-details">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="clearfix">
+                                <div class="title">{{car.title}}</span></div>
+                                <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                            </div>
+
+
+                            <div id="car-details-slider" class="image">
+                                <div class="item"><img src="{{ asset('upload/images/' ~ car.image) }}" alt="alt" class="img-responsive"></div>
+                               <div class="item"><img src="{{ asset('upload/images/' ~ car.image) }}" alt="alt" class="img-responsive"></div>
+                                <div class="item"><img src="{{ asset('upload/images/' ~ car.image) }}" alt="alt" class="img-responsive"></div>
+                            </div>
+
+                            <div class="tabpanel border" role="tabpanel">
+                                <ul class="nav nav-tabs" role="tablist">
+
+                                    <li role="presentation"><a href="#heading-tab5" aria-controls="heading-tab5" role="tab" data-toggle="tab">Car Detail</a></li>
+                                    <li role="presentation"><a href="#heading-tab6" aria-controls="heading-tab6" role="tab" data-toggle="tab">Comments</a></li>
+                                </ul> <!-- end .nav-tabs -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="heading-tab4">
+                                        <p>Vivamus sit amet leo at arcu placerat hendrerit. Suspendisse scelerisque, metus quis iaculis placerat, elit neque lacinia tellus, in mollis nunc sem quis ante. Mauris tincidunt libero sit amet egestas lobortis. Etiam id vulputate elit. Pellentesque commodo, nulla ac mollis interdum, eros nibh porttitor ex, fringilla suscipit urna velit sed elit. Vivamus tincidunt accumsan odio, porttitor congue felis.</p>
+                                        <p>Cras lacinia diam neque, non iaculis ex elementum ac. Phasellus a varius libero. Nulla ut vestibulum quam. Curabitur posuere, felis sed pulvinar elementum, metus eros eleifend urna, eu volutpat lectus sem in felis. In mattis urna justo, nec cursus mauris consectetur at. Vestibulum nec fringilla erat. Pellentesque cursus fermentum nunc vitae mattis. Fusce leo diamfelis sed pulvinar elementum, metus eros eleifend urna, eu volutpat lectus sem in felis. In mattis urna justo, nec cursus mauris consectetur at. Vestibulum nec fringilla erat. Pellentesque cursus fermentum nunc vitae mattis.</p>
+                                        <p>Vivamus sit amet leo at arcu placerat hendrerit. Suspendisse scelerisque, metus quis iaculis placerat, elit neque lacinia tellus, in mollis nunc sem quis ante. Mauris tincidunt libero sit amet egestas lobortis. Etiam id vulputate elit. Pellentesque commodo, nulla ac mollis interdum, eros nibh porttitor ex, fringilla suscipit urna velit sed elit. Vivamus tincidunt accumsan odio, porttitor congue felis.</p>
+                                        <p>Vivamus sit amet leo at arcu placerat hendrerit. Suspendisse scelerisque, metus quis iaculis placerat, elit neque lacinia tellus, in mollis nunc sem quis ante. Mauris tincidunt libero sit amet egestas lobortis. Etiam id vulputate elit. Pellentesque commodo, nulla ac mollis interdum, eros nibh porttitor ex, fringilla suscipit urna velit sed elit. Vivamus tincidunt accumsan odio, porttitor congue felis.</p>
+                                    </div> <!-- end .tab-panel -->
+                                    <div role="tabpanel" class="tab-pane fade" id="heading-tab5">
+                                        <p>Vivamus sit amet leo at arcu placerat hendrerit. Suspendisse scelerisque, metus quis iaculis placerat, elit neque lacinia tellus, in mollis nunc sem quis ante. Mauris tincidunt libero sit amet egestas lobortis. Etiam id vulputate elit. Pellentesque commodo, nulla ac mollis interdum, eros nibh porttitor ex, fringilla suscipit urna velit sed elit. Vivamus tincidunt accumsan odio, porttitor congue felis.</p>
+                                        <p>Cras lacinia diam neque, non iaculis ex elementum ac. Phasellus a varius libero. Nulla ut vestibulum quam. Curabitur posuere, felis sed pulvinar elementum, metus eros eleifend urna, eu volutpat lectus sem in felis. In mattis urna justo, nec cursus mauris consectetur at. Vestibulum nec fringilla erat. Pellentesque cursus fermentum nunc vitae mattis. Fusce leo diamfelis sed pulvinar elementum, metus eros eleifend urna, eu volutpat lectus sem in felis. In mattis urna justo, nec cursus mauris consectetur at. Vestibulum nec fringilla erat. Pellentesque cursus fermentum nunc vitae mattis.</p>
+                                    </div> <!-- end .tab-panel -->
+                                    <div role="tabpanel" class="tab-pane fade" id="heading-tab6">
+                                       {% for rs in comments %}
+                                        <h5>{{rs.subject}} Rate : {{ rs.rate }}</h5>
+                                           <p>
+                                               {{ rs.comment }}
+                                           </p>
+                                       {% endfor %}
+                                        <h4>Write your comment</h4>
+                                        {{ include('messages.html.twig') }}
+                                        <form name="comment" method="post" id="contact-form">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <input type="text" id="comment_subject" name="comment[subject]" placeholder="Subject" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                       <select id="comment_rate" name="comment[rate]">
+                                                           <option>1</option>
+                                                           <option>2</option>
+                                                           <option>3</option>
+                                                           <option>4</option>
+                                                           <option>5</option>
+                                                       </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <textarea id="comment_message" name="comment[message]" placeholder="Comment*" required rows="7"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <input type="hidden" name="token" value="{{ csrf_token('form-message') }}" />
+                                                <button type="submit" class="button light-blue">Send Comment</button>
+                                            </div>
+                                            <div id="contact-loading" class="alert alert-info form-alert">
+                                                <span class="icon"><i class="fa fa-info"></i></span>
+                                                <span class="message">Loading...</span>
+                                            </div>
+                                            <div id="contact-success" class="alert alert-success form-alert">
+                                                <span class="icon"><i class="fa fa-check"></i></span>
+                                                <span class="message">Success!</span>
+                                            </div>
+                                            <div id="contact-error" class="alert alert-danger form-alert">
+                                                <span class="icon"><i class="fa fa-times"></i></span>
+                                                <span class="message">Error!</span>
+                                            </div>
+                                        </form>
+                                    </div> <!-- end .tab-panel -->
+                                </div> <!-- end .tab-content -->
+                            </div> <!-- end .tabpanel -->
+                        </div> <!-- end .col-sm-8 -->
+                        <div class="col-sm-4">
+                            <div class="buttons">
+                                <a href="" class="button border dark">Download Manual</a>
+                                <a href="" class="button border blue">Schedule A Test Drive</a>
+                            </div>
+                            <div class="price">{{car.price}} TL <span>/ for sale</span></div>
+                            <div class="main-car-details">
+                            <h1>{{car.title}}</h1>
+                            <table class="table">
+                                <tbody>
+
+                                <tr>
+                                    <th>Title</th>
+                                    <td>{{ car.title }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Description</th>
+                                    <td>{{ car.description }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Price</th>
+                                    <td>{{ car.price }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Address</th>
+                                    <td>{{ car.address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Phone</th>
+                                    <td>{{ car.phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fax</th>
+                                    <td>{{ car.fax }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td>{{ car.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th>City</th>
+                                    <td>{{ car.city }}/ {{ car.country }}</td>
+                                </tr>
+
+
+
+
+                                </tbody>
+                            </table>
+
+                            </div> <!-- end .main-car-details -->
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" width="434" height="244" src="https://www.youtube.com/embed/iNJdPyoqt8U?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                            </div> <!-- end .embed-responsive -->
+                        </div> <!-- end .col-sm-4 -->
+                    </div> <!-- end .row -->
+                </div> <!-- end .car-details -->
+                <div class="listings related-vehicles">
+                    <div class="heading clearfix"><h5>Related Vehicles</h5></div>
+                    <div class="listings-grid clearfix">
+                        <div class="listing">
+                            <div class="image"><a href=""><img src="{{ asset('assets') }}/images/listing01.jpg" alt="listing" class="img-responsive"></a></div>
+                            <div class="content">
+                                <div class="title"><a href="">Ferrari <span>[ Grand ]</span></a></div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typeset Ipsum has been the Off-road.</p>
+                                <div class="price">$80000 <span>/ for sale</span></div>
+                            </div>
+                        </div> <!-- end .listing -->
+                        <div class="listing">
+                            <div class="image"><a href=""><img src="{{ asset('assets') }}/images/listing01.jpg" alt="listing" class="img-responsive"></a></div>
+                            <div class="content">
+                                <div class="title"><a href="">Ferrari <span>[ Grand ]</span></a></div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typeset Ipsum has been the Off-road.</p>
+                                <div class="price green">$80000 <span>/ for rent</span></div>
+                            </div>
+                        </div> <!-- end .listing -->
+                        <div class="listing">
+                            <div class="image"><a href=""><img src="{{ asset('assets') }}/images/listing01.jpg" alt="listing" class="img-responsive"></a></div>
+                            <div class="content">
+                                <div class="title"><a href="">Ferrari <span>[ Grand ]</span></a></div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typeset Ipsum has been the Off-road.</p>
+                                <div class="price">$80000 <span>/ for sale</span></div>
+                            </div>
+                        </div> <!-- end .listing -->
+                        <div class="listing">
+                            <div class="image"><a href=""><img src="{{ asset('assets') }}/images/listing01.jpg" alt="listing" class="img-responsive"></a></div>
+                            <div class="content">
+                                <div class="title"><a href="">Ferrari <span>[ Grand ]</span></a></div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typeset Ipsum has been the Off-road.</p>
+                                <div class="price">$80000 <span>/ for sale</span></div>
+                            </div>
+                        </div> <!-- end .listing -->
+                    </div> <!-- end .listing-grid -->
+                </div> <!-- end .listings -->
+            </div> <!-- end .container -->
+        </div> <!-- end .inner -->
+    </section> <!-- end .section -->
+
+
+
+
+{% endblock %}
